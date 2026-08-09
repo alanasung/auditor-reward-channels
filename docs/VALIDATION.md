@@ -63,3 +63,24 @@ Residual: entailment remains lexical (not NLI); lineage measured adapters still 
 
 Residual: micro-pilot n and synthetic lineage harness remain; measured multi-lineage adapters still opt-in.
 
+## Codex problem-statement fit
+
+Model: `gpt-5.6-sol` · gates: `match` + `validate` · 2026-08-09
+Artifacts: `orchestration/out/match/cot-obfuscation-pressure.md`, `orchestration/out/validate/cot-obfuscation-pressure.md`
+
+- **Match verdict:** `MATERIAL_DRIFT` · methods `mixed_proxy`
+- **Validate overall:** `SERIOUS_PROBLEMS` · fit `MATERIAL_DRIFT` · feasibility `RUNNABLE_IF_SHRUNK`
+- **Match summary:** The repo targets the right scientific question and contains a genuine local RL scaffold, but its calibrated rewards are not used in training, its preferred GRPO path collapses the three surfaces, and its required lineage comparison is synthetic, so it cannot yet answer the mentor's central question.
+- **Validate summary:** A well-targeted and unusually honest scaffold, but the measured training/evaluation path is scientifically invalid and the pilot cannot yet answer the mentor's central reward-surface or lineage questions.
+
+### Top drift / missing (match)
+- FPR-matched thresholds are fitted and used for claim gating but are never passed into the rewards used for training
+- the preferred TRL GRPO reward path maps one completion onto overlapping CoT, summary, and output fields, so it does not implement three distinct reward surfaces
+- the TRL reward uses a structural pass proxy rather than the task's public-test execution
+- stage_evaluate hard-codes force_synthetic=true for every lineage comparison
+
+### Blocking (validate)
+- `src/cotobf/cotobf/rl.py`: TRL evaluation reloads the untrained base model, may retain fabricated honest rollouts after failure, and still marks the result measured and claimable.
+- `src/cotobf/cotobf/pipeline.py`: FPR-matched thresholds are read and reported but never passed into the reward functions used for training.
+- `src/cotobf/cotobf/env.py`: The environment provides no strong incentive to misbehave; the honest solution is explicit and simpler than the shortcut.
+- `src/cotobf/cotobf/obfuscation.py`: The primary misbehavior metric ignores public-pass/hidden-fail behavioral cheating and relies only on an overbroad lexical/AST detector.

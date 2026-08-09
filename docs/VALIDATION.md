@@ -50,3 +50,16 @@ Grok PASS_WITH_NOTES on the measurable RL/obfuscation core. Codex SERIOUS_PROBLE
 
 Residual: entailment remains lexical (not NLI); lineage measured adapters still opt-in.
 
+## P7 rigor pass
+
+| Fix | Status |
+|---|---|
+| FPR-matched per-surface thresholds on held-out rollouts; `fpr_matched` stamp | OK (`monitors.py` `fit_fpr_matched_thresholds`) |
+| Arm ordering / report metrics require `fpr_matched=true` + measured RL modes | OK (`pipeline.py`, `lineages.py`) |
+| Synthetic GRPO gated: `is_synthetic=true`, claims false; smoke retained | OK (`rl.py` / fit / report) |
+| Obfuscation-over-training curve + `obfuscation_evolves` slope test (measured steps) | OK (`obfuscation.py`) |
+| Honest pilot-n: `power_status=micro` stamps; README/DESIGN softened | OK |
+| Domain P7 tests Hub-free | OK (`test_domain_p7_matched_claims.py`) |
+
+Residual: micro-pilot n and synthetic lineage harness remain; measured multi-lineage adapters still opt-in.
+

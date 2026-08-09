@@ -86,6 +86,8 @@ def synthetic_grpo(
         "history": history,
         "final": final,
         "trl_status": _try_import_grpo()[1],
+        "is_synthetic": True,
+        "claims_gated": True,
     }
 
 
@@ -252,6 +254,8 @@ def local_policy_gradient(
         "seed": seed,
         "model_ref": model,
         "tokenizer_ref": tok,
+        "is_synthetic": False,
+        "claims_gated": False,
     }
 
 
@@ -340,6 +344,8 @@ def _try_trl_grpo_smoke(
             "trl_status": status,
             "grpo_trainer_class": str(cls),
             "seed": seed,
+            "is_synthetic": False,
+            "claims_gated": False,
         }
     except Exception:
         return None
@@ -361,7 +367,10 @@ def train_with_grpo(
         out = synthetic_grpo(env, reward_shape=reward_shape, steps=steps, seed=seed)
         out["fallback_reason"] = "force_synthetic=True"
         out["model_name"] = model_name
+        out["is_synthetic"] = True
+        out["claims_gated"] = True
         return out
+
 
     cls, status = _try_import_grpo()
     if cls is not None:

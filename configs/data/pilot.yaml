@@ -1,7 +1,7 @@
-# The real item set at pilot size. Small enough to finish locally, large enough
-# that a bootstrap interval is meaningful rather than decorative.
+# Local M4 micro-pilot size. Stamps power_status=micro; powered n>=512 is a
+# future scale target (see README / DESIGN), not the current claim.
 name: pilot
-n_items: 512
+n_items: 32
 seed: 0
 train_frac: 0.6
 val_frac: 0.2

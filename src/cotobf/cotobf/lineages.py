@@ -23,6 +23,7 @@ def run_lineage_comparison(
     seed: int = 0,
     n_tasks: int = 32,
     force_synthetic: bool = True,
+    fpr_matched: bool = False,
 ) -> dict[str, Any]:
     """Compare reward-shape orderings across lineage labels.
 
@@ -30,8 +31,8 @@ def run_lineage_comparison(
     smoke). Measured per-lineage runs are opt-in when weights are local.
 
     ``ordering_stable_across_lineages`` is only claimable when every lineage
-    ran in a non-synthetic mode; otherwise the flag is False and
-    ``ordering_claim_ok`` explains why.
+    ran in a non-synthetic mode and monitors are FPR-matched; otherwise the
+    flag is False and ``ordering_claim_ok`` explains why.
     """
     env = RewardHackEnv(n_tasks=n_tasks, seed=seed)
     results = {}
@@ -52,14 +53,18 @@ def run_lineage_comparison(
             per_shape[shape] = fit["final"]["obfuscation_index_heldout"]
             mode = str(fit.get("mode", "synthetic"))
             modes[shape] = mode
-            if mode == "synthetic" or force_synthetic:
+            if (
+                mode in {"synthetic", "synthetic_grpo"}
+                or force_synthetic
+                or bool(fit.get("is_synthetic"))
+            ):
                 any_synthetic = True
         ordering = sorted(per_shape, key=lambda s: per_shape[s], reverse=True)
         results[lineage] = {"per_shape": per_shape, "ordering": ordering, "modes": modes}
         orderings[lineage] = ordering
     canonical = list(orderings.values())[0] if orderings else []
     stable = all(v == canonical for v in orderings.values()) if orderings else True
-    claim_ok = bool(stable and not any_synthetic and len(orderings) >= 2)
+    claim_ok = bool(stable and not any_synthetic and len(orderings) >= 2 and fpr_matched)
     return {
         "lineages": list(lineages),
         "results": results,
@@ -68,8 +73,9 @@ def run_lineage_comparison(
         "ordering_claim_ok": claim_ok,
         "any_lineage_synthetic": any_synthetic,
         "force_synthetic": force_synthetic,
+        "fpr_matched": bool(fpr_matched),
         "note": (
             "lineage, not parameter count, is the comparison axis; "
-            "ordering_stable_across_lineages requires measured modes on all lineages"
+            "ordering claims require measured modes on all lineages and fpr_matched=true"
         ),
     }

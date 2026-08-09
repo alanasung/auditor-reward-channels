@@ -39,3 +39,14 @@ Grok PASS_WITH_NOTES on the measurable RL/obfuscation core. Codex SERIOUS_PROBLE
 - Claim gating tightened where proxies previously looked like evidence.
 - Domain tests green without Hub downloads.
 
+## P6 rigor pass
+
+| Fix | Status |
+|---|---|
+| Purge `detect_cheat` from train rewards (`_reward`, `synthetic_grpo`, expert-iter smoke) | OK — public-test execute / structural proxy only |
+| Separate post-hoc summary generation (2nd call; CoT-only; surface stamp) | OK (`rollouts.py` `summary_surface=posthoc_from_cot`) |
+| Entailment: expanded labeled pairs; threshold fit on held-out half; P/R reported | OK (`obfuscation.py`) |
+| Domain P6 tests Hub-free | OK (`test_domain_p6_train_reward.py`) |
+
+Residual: entailment remains lexical (not NLI); lineage measured adapters still opt-in.
+

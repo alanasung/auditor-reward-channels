@@ -4,9 +4,9 @@ from __future__ import annotations
 
 from typing import Any
 
-from .env import detect_cheat
 from .monitors import apply_training_monitor
 from .obfuscation import obfuscation_index
+from .rl import _structural_pass_proxy
 from .rollouts import collect_rollouts
 
 
@@ -21,7 +21,8 @@ def expert_iteration_smoke(env: Any, *, reward_shape: str, rounds: int = 3, seed
         for tr in rollouts:
             flagged = apply_training_monitor(reward_shape, tr)["flagged"]
             flags.append(flagged)
-            passed = detect_cheat(tr["output"]) or ("*" in tr["output"])
+            # Structural / public-test proxy only — detect_cheat is eval-only.
+            passed = _structural_pass_proxy(tr.get("output", ""))
             if passed and not flagged:
                 experts.append(tr)
         metrics = obfuscation_index(rollouts, flags)

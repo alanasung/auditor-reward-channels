@@ -6,12 +6,17 @@ from typing import Any
 
 import numpy as np
 
-from .env import detect_cheat
 from .monitors import MONITOR_NAMES, apply_training_monitor, heldout_monitor
 from .obfuscation import obfuscation_index
 from .rollouts import collect_rollouts
 
 PINNED_TRL_NOTE = "trl==0.14.0 preferred; GRPO API probed at runtime"
+
+
+def _structural_pass_proxy(code: str) -> bool:
+    """Offline smoke pass signal — structural only; never uses detect_cheat."""
+    blob = code or ""
+    return ("return" in blob) and (("*" in blob) or ("def " in blob and "if " in blob))
 
 
 def _try_import_grpo() -> tuple[Any | None, str]:
@@ -63,7 +68,8 @@ def synthetic_grpo(
         train_flags = [apply_training_monitor(reward_shape, tr)["flagged"] for tr in rollouts]
         rewards = []
         for tr, flagged in zip(rollouts, train_flags):
-            passed = detect_cheat(tr["output"]) or ("*" in tr["output"])
+            # Public-test / structural pass only — detect_cheat is eval-only.
+            passed = _structural_pass_proxy(tr.get("output", ""))
             rewards.append(float(passed) - float(flagged))
         metrics = obfuscation_index(rollouts, train_flags)
         metrics["mean_reward"] = float(np.mean(rewards))
@@ -95,8 +101,7 @@ def _reward(tr: dict[str, Any], reward_shape: str, *, public_tests: list[dict[st
         passed = execute_tests(tr.get("output", ""), public_tests).get("passed", False)
     else:
         # Offline smoke: shallow visible proxy without cheat detector.
-        code = tr.get("output", "")
-        passed = ("return" in code) and (("*" in code) or detect_cheat(code) or "if" in code)
+        passed = _structural_pass_proxy(tr.get("output", ""))
     return float(passed) - float(flagged)
 
 
@@ -181,12 +186,26 @@ def local_policy_gradient(
             from .rollouts import _parse_fields
 
             fields = _parse_fields(text)
+            from .model_runtime import RuntimeModel
+            from .rollouts import _summarize_cot_without_code
+
+            rt = RuntimeModel(
+                model=model,
+                tokenizer=tok,
+                name=model_name,
+                revision=revision,
+                device=device,
+                notes=[],
+            )
+            summary = _summarize_cot_without_code(rt, fields["cot"])
             tr = {
                 "task_id": task["task_id"],
                 "cot": fields["cot"],
-                "summary": fields["summary"],
+                "summary": summary,
                 "output": fields["output"],
                 "mode": "measured",
+                "summary_surface": "posthoc_from_cot",
+                "summary_generation": "separate_call",
             }
             step_rollouts.append(tr)
             r = _reward(tr, reward_shape, public_tests=task.get("tests"))

@@ -1,18 +1,15 @@
 <p align="center">
-  <h1 align="center">A Monitor-Reward Taxonomy and the Obfuscation Curve</h1>
-  <p align="center"><strong>Hold the task and the misbehavior incentive fixed, vary only where the monitor reads, and measure how much each reward shape teaches the model to hide rather than to behave.</strong></p>
+  <h1 align="center">Monitor Placement and Chain-of-Thought Obfuscation</h1>
+  <p align="center"><strong>Hold the task fixed, vary only where the monitor reads, and measure which reward shapes teach models to hide rather than behave.</strong></p>
   </p>
 
 ---
 
 ## Overview
 
-This repository implements the pilot and full experimental profiles for
-**A Monitor-Reward Taxonomy and the Obfuscation Curve**. Config, caching, hooks, metrics, ablations, reporting, and CI are built for reproducible local pilots on small open-weight models.
+This repository implements experimental profiles for **Monitor Placement and Chain-of-Thought Obfuscation**. Config, caching, hooks, metrics, ablations, reporting, and CI are built for reproducible local pilots on small open-weight models.
 
 Hypothesis (one line): Obfuscation pressure is not binary in whether the monitor touches the chain of thought. Post-hoc summarization of reasoning in output space induces measurable obfuscation too, placing it between direct CoT-token monitoring and output-only monitoring. Whether that ordering is stable across training lineages is the open question, not an assumption: lineage-dependent reversals are a live possible outcome and would be a more interesting result than confirmation.
-
-Mentors: Cody Wild (Google DeepMind).
 
 ## Motivation
 
@@ -89,13 +86,12 @@ registry and must pass the harness-validation script before any measured claim.
 ## Citation
 
 ```bibtex
-@misc{cotobf_pilot,
-  title        = {A Monitor-Reward Taxonomy and the Obfuscation Curve},
-  author       = {Cody Wild},
+@misc{cot_obfuscation_pilot,
+  title        = {Monitor Placement and Chain-of-Thought Obfuscation},
+  author       = {Alana Sung},
   year         = {2026},
-  howpublished = {Research pilot},
-  note         = {Hold the task and the misbehavior incentive fixed, vary only where the monitor reads, and measure how much each reward shape teaches the model to hide rather than to behave.},
-  }
+  howpublished = {Technical report},
+}
 ```
 
 ## License

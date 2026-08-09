@@ -4,8 +4,7 @@ Context for coding agents working in this repository.
 
 ## What this is
 
-A pilot research implementation of "A Monitor-Reward Taxonomy and the Obfuscation Curve" for the research agenda "An Exploration of What Kinds of Training Pressure Cause COT Obfuscation" (mentor: Cody Wild,
-Google DeepMind).
+Research implementation of "Monitor Placement and Chain-of-Thought Obfuscation".
 
 ## Hard constraints
 
@@ -21,7 +20,7 @@ Google DeepMind).
 
 Implement the stages in `src/cotobf/stages.py`. The signatures,
 dependency edges, and docstring contracts are fixed; they encode an experiment
-design that was checked against the mentor's posting before implementation
+design that was checked against the motivating posting before implementation
 started. Do not renegotiate them. If a contract is genuinely wrong, change it in
 `docs/EXPERIMENT_PLAN.md` first and explain why.
 

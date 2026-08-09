@@ -33,7 +33,7 @@
 ## Reconciliation
 Grok PASS_WITH_NOTES on the measurable RL/obfuscation core. Codex SERIOUS_PROBLEMS targets powered multi-lineage perfection — residual scale notes. Domain tests pass with Hub monkeypatched; synthetic is smoke-only.
 
-## P5 rigor pass (measured mentor-critical paths)
+## P5 rigor pass (measured prior work-critical paths)
 
 - Live / measured paths preferred; synthetic remains smoke-only with honesty stamps.
 - Claim gating tightened where proxies previously looked like evidence.

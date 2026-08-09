@@ -1,7 +1,6 @@
 # Related work
 
-This note situates **A Monitor-Reward Taxonomy and the Obfuscation Curve** against the mentor-linked literature for
-[An Exploration of What Kinds of Training Pressure Cause COT Obfuscation](https://sparai.org/projects/f26/recaZTXfK7ua29Izm).
+This note situates **Monitor Placement and Chain-of-Thought Obfuscation** against related literature.
 
 ## Positioning
 
@@ -25,7 +24,7 @@ is written.
 
 ### Slot A — Primary motivating paper
 
-Summary of the mentor's main citation and the exact claim this repo tests.
+Summary of the main related citation and the exact claim this repo tests.
 
 ### Slot B — Closest prior codebase
 
@@ -44,11 +43,6 @@ Shortcut learning, eval awareness, circular labels, underpowered nulls.
 
 Where this design intentionally diverges from common practice, with the
 falsification condition.
-
-## Mentors and affiliations
-
-- Mentor(s): Cody Wild
-- Affiliation(s): Google DeepMind
 
 ## Bibliography placeholders
 

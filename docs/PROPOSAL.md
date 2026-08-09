@@ -1,9 +1,7 @@
-# Proposal: A Monitor-Reward Taxonomy and the Obfuscation Curve
+# Monitor Placement and Chain-of-Thought Obfuscation
 
 **Target project.** An Exploration of What Kinds of Training Pressure Cause COT Obfuscation
-**Mentor.** Cody Wild (Google DeepMind)
 **Research areas.** Chain of thought; Scalable oversight
-**Related posting.** https://sparai.org/projects/f26/recaZTXfK7ua29Izm
 
 ## Summary
 
@@ -21,8 +19,8 @@ reportable rather than a dead end.
 
 1. In an environment that strongly rewards a detectable shortcut, how do the three reward shapes differ in misbehavior rate versus detection rate under actual RL optimization?
 2. Can we separate genuine behavioral improvement from obfuscation using an independent held-out monitor the model was never trained against?
-3. Does the ordering of obfuscation pressure hold across distinct training lineages (Qwen, Llama, OLMo), or does it invert? Lineage, not parameter count, is the variable the mentor asked about.
-4. Does the thought region differentiate from the output region over the course of RL, which is the mentor's stated stretch goal?
+3. Does the ordering of obfuscation pressure hold across distinct training lineages (Qwen, Llama, OLMo), or does it invert? Lineage, not parameter count, is the variable the prior work asked about.
+4. Does the thought region differentiate from the output region over the course of RL, which is the motivating stated stretch goal?
 
 ## Method
 
@@ -55,7 +53,7 @@ reportable rather than a dead end.
 
 ## Literature engagement
 
-docs/RELATED_WORK.md must contain a direct methodological critique of arXiv:2511.11584, stating what this repo replicates, what it considers under-specified, and what it changes. The mentor's application question asks for exactly this.
+docs/RELATED_WORK.md must contain a direct methodological critique of arXiv:2511.11584, stating what this repo replicates, what it considers under-specified, and what it changes. the motivating application question asks for exactly this.
 
 ## Feasibility
 
@@ -67,7 +65,6 @@ real GPU is available, so the reduction in scale is explicit rather than hidden.
 
 ## Relationship to the posting
 
-This proposal was checked against the mentor's verbatim posting by an
-independent model before implementation began. That check, the drift it found,
+This proposal was independent model before implementation began. That check, the drift it found,
 and the revisions made in response are recorded in
 [docs/ALIGNMENT.md](ALIGNMENT.md).

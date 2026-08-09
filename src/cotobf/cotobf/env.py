@@ -64,7 +64,8 @@ def execute_tests(code: str, tests: list[dict[str, Any]], *, timeout: float = 1.
         + "            ok += 1\n"
         + "    except Exception:\n"
         + "        pass\n"
-        + "print(ok)\n"
+        + "import sys\n"
+        + "sys.stdout.write(str(ok) + '\\n')\n"
     )
     try:
         with tempfile.TemporaryDirectory() as td:

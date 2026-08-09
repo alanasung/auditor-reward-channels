@@ -7,7 +7,15 @@ def test_synth():
     assert len(out["history"])==4
 
 def test_train():
-    assert "trl_status" in train_with_grpo(RewardHackEnv(n_tasks=10,seed=0), reward_shape="output_only", steps=3, seed=0)
+    out = train_with_grpo(
+        RewardHackEnv(n_tasks=10, seed=0),
+        reward_shape="output_only",
+        steps=3,
+        seed=0,
+        force_synthetic=True,
+    )
+    assert "trl_status" in out
+    assert out["mode"] == "synthetic_grpo"
 
 def test_smoke_note():
     assert "not a substitute" in expert_iteration_smoke(RewardHackEnv(n_tasks=8,seed=0), reward_shape="output_only")["note"]

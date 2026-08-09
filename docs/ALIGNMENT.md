@@ -1,13 +1,14 @@
 # ALIGNMENT — cot-obfuscation-pressure
 
-## Codex GPT-5 Sol
+## Codex GPT-5 Sol (p2)
 - Verdict: ALIGNED
-- Summary: The proposal directly implements the mentor's three-way monitor-reward comparison, cross-lineage analysis, obfuscation measurement, and RL-trajectory stretch goal; remaining concerns are operational validity and constrained-scale feasibility, not drift.
+- Summary: Directly implements the mentor's three-way monitor-reward comparison, cross-lineage axis, obfuscation measurement, and RL-over-time stretch goal.
+- Detail: `orchestration/out/align/cot-obfuscation-pressure.json`
 
-## Grok
+## Grok (p2 dual)
 - Verdict: ALIGNED
-- Summary: Near one-to-one match to the mentor’s three monitor shapes, misbehavior environment, lineage comparison, and RL-over-time stretch goal.
-- Detail: see `orchestration/out/grok/align/cot-obfuscation-pressure.md` and `cot-obfuscation-pressure.json`.
+- Summary: One-to-one with mentor aims; P2 measured rollouts/RL strengthen fidelity without changing the question.
+- Detail: `orchestration/out/grok/align/cot-obfuscation-pressure.p2.md`
 
 ## Reconciliation
 Both ALIGNED. Proceed.

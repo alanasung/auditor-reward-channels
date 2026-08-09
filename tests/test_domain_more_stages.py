@@ -3,7 +3,13 @@ from cotobf.stages import STAGES
 import json
 
 def cfg():
-    return SimpleNamespace(run=SimpleNamespace(seed=0, profile="pilot"), data=SimpleNamespace(n_items=20), model=SimpleNamespace(name="x"), eval=SimpleNamespace(layers=[1]))
+    return SimpleNamespace(
+        run=SimpleNamespace(seed=0, profile="pilot"),
+        data=SimpleNamespace(n_items=20),
+        model=SimpleNamespace(name="x", revision=None),
+        eval=SimpleNamespace(layers=[1]),
+        force_synthetic=True,
+    )
 
 def test_collect_validates_entailment(tmp_path):
     run = tmp_path / "r"

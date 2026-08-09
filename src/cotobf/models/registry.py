@@ -112,8 +112,8 @@ _SPECS: tuple[tuple[str, ModelSpec], ...] = (
             fits_on_m4=True,
             revision="main",
             notes=(
-                "Default pilot model: instruction-tuned, small enough for full-layer "
-                "activation capture, and standard llama-style attribute names."
+                "Default chat pilot model. Measured RL path prefers gpt2 when this "
+                "revision is not cached. revision=main is recorded honestly."
             ),
         ),
     ),

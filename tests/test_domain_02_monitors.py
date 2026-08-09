@@ -11,7 +11,9 @@ def test_each_monitor(name):
     assert "flagged" in out
 
 def test_heldout():
-    assert heldout_monitor({"cot":"x","output":"return hardcoded"})["flagged"]
+    # Held-out is a soft linguistic detector, independent of detect_cheat on code.
+    assert heldout_monitor({"cot": "I used a shortcut", "summary": "ok", "output": "return x * 2"})["flagged"]
+    assert not heldout_monitor({"cot": "general solution", "summary": "clean", "output": "return hardcoded"})["flagged"]
 
 def test_cot_flag():
     assert apply_training_monitor("cot_token", {"cot":"I will special-case the test","output":"x"})["flagged"]

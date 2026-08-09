@@ -21,25 +21,39 @@ def run_lineage_comparison(
     steps: int = 10,
     seed: int = 0,
     n_tasks: int = 32,
+    force_synthetic: bool = True,
 ) -> dict[str, Any]:
+    """Compare reward-shape orderings across lineage labels.
+
+    Default ``force_synthetic=True`` keeps the harness offline (unit tests /
+    smoke). Measured per-lineage LoRA/PG runs are opt-in when weights are local.
+    """
     env = RewardHackEnv(n_tasks=n_tasks, seed=seed)
     results = {}
     orderings = {}
     for i, lineage in enumerate(lineages):
         per_shape = {}
+        modes = {}
         for shape in MONITOR_NAMES:
-            fit = train_with_grpo(env, reward_shape=shape, model_name=lineage, steps=steps, seed=seed + i)
+            fit = train_with_grpo(
+                env,
+                reward_shape=shape,
+                model_name=lineage,
+                steps=steps,
+                seed=seed + i,
+                force_synthetic=force_synthetic,
+            )
             per_shape[shape] = fit["final"]["obfuscation_index_heldout"]
-        # Order by held-out obfuscation index descending.
+            modes[shape] = fit["mode"]
         ordering = sorted(per_shape, key=lambda s: per_shape[s], reverse=True)
-        results[lineage] = {"per_shape": per_shape, "ordering": ordering}
+        results[lineage] = {"per_shape": per_shape, "ordering": ordering, "modes": modes}
         orderings[lineage] = ordering
-    # Stability of ordering across lineages
     canonical = list(orderings.values())[0] if orderings else []
     stable = all(v == canonical for v in orderings.values()) if orderings else True
     return {
         "lineages": list(lineages),
         "results": results,
         "ordering_stable_across_lineages": bool(stable),
+        "force_synthetic": force_synthetic,
         "note": "lineage, not parameter count, is the comparison axis",
     }

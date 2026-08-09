@@ -24,7 +24,14 @@ def test_fit_ordering(tmp_path):
     for s in ("build_dataset", "collect", "fit"):
         STAGES[s](c, run)
     fit = json.loads((run/"artifacts/fit/results.json").read_text())
-    assert set(fit["metrics"]["ordering_by_heldout_obfuscation"]) == {"cot_token", "posthoc_summary", "output_only"}
+    # Synthetic smoke gates claim headlines; raw ordering still lists all arms.
+    assert fit["metrics"]["ordering_claim_ok"] is False
+    assert fit["metrics"]["ordering_by_heldout_obfuscation"] == []
+    assert set(fit["metrics"]["ordering_raw"]) == {
+        "cot_token",
+        "posthoc_summary",
+        "output_only",
+    }
 
 def test_evaluate_lineages(tmp_path):
     run = tmp_path / "r"

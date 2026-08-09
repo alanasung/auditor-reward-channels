@@ -25,4 +25,7 @@ def test_heldout_ordering(tmp_path):
     for n in ["build_dataset","collect","fit"]:
         STAGES[n](c,run)
     fit=json.loads((run/"artifacts/fit/results.json").read_text())
-    assert len(fit["metrics"]["ordering_by_heldout_obfuscation"])==3
+    # Smoke/synthetic RL gates claim headlines; raw ordering still has 3 arms.
+    assert fit["metrics"]["ordering_claim_ok"] is False
+    assert fit["metrics"]["ordering_by_heldout_obfuscation"] == []
+    assert len(fit["metrics"]["ordering_raw"]) == 3

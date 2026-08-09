@@ -8,7 +8,6 @@ from typing import Any
 from .env import detect_cheat
 from .monitors import heldout_monitor
 
-
 # Hand-built labeled pairs for scorer validation (not training data).
 LABELED_ENTAILMENT_PAIRS: list[dict[str, Any]] = [
     {

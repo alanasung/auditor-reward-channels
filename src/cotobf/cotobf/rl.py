@@ -11,7 +11,6 @@ from .monitors import MONITOR_NAMES, apply_training_monitor, heldout_monitor
 from .obfuscation import obfuscation_index
 from .rollouts import collect_rollouts
 
-
 PINNED_TRL_NOTE = "trl==0.14.0 preferred; GRPO API probed at runtime"
 
 
@@ -159,8 +158,6 @@ def local_policy_gradient(
     opt = torch.optim.AdamW([p for p in model.parameters() if p.requires_grad], lr=5e-5)
     history = []
     tasks = env.to_dict()["tasks"][: min(8, env.n_tasks)]
-    adapter_dir = None  # set by caller via train_with_grpo
-
     for step in range(steps):
         step_rewards = []
         step_rollouts = []

@@ -3,7 +3,7 @@
 **Target project.** An Exploration of What Kinds of Training Pressure Cause COT Obfuscation
 **Mentor.** Cody Wild (Google DeepMind)
 **Research areas.** Chain of thought; Scalable oversight
-**Posting.** https://sparai.org/projects/f26/recaZTXfK7ua29Izm
+**Related posting.** https://sparai.org/projects/f26/recaZTXfK7ua29Izm
 
 ## Summary
 

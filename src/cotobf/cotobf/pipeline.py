@@ -7,6 +7,7 @@ from typing import Any
 
 from omegaconf import DictConfig
 
+from ._util import ensure_dir, read_json, stage_result, write_json
 from .env import RewardHackEnv
 from .expert_iteration import expert_iteration_smoke
 from .lineages import run_lineage_comparison
@@ -14,7 +15,6 @@ from .monitors import MONITOR_NAMES, apply_training_monitor
 from .obfuscation import obfuscation_index, validate_entailment_scorer
 from .rl import train_with_grpo
 from .rollouts import collect_rollouts
-from ._util import ensure_dir, read_json, stage_result, write_json
 
 
 def _seed(cfg: DictConfig) -> int:

@@ -4,8 +4,7 @@ Context for coding agents working in this repository.
 
 ## What this is
 
-A pilot research implementation of "A Monitor-Reward Taxonomy and the Obfuscation Curve" targeting the SPAR
-Fall 2026 project "An Exploration of What Kinds of Training Pressure Cause COT Obfuscation" (mentor: Cody Wild,
+A pilot research implementation of "A Monitor-Reward Taxonomy and the Obfuscation Curve" for the research agenda "An Exploration of What Kinds of Training Pressure Cause COT Obfuscation" (mentor: Cody Wild,
 Google DeepMind).
 
 ## Hard constraints

@@ -1,17 +1,14 @@
 <p align="center">
   <h1 align="center">A Monitor-Reward Taxonomy and the Obfuscation Curve</h1>
   <p align="center"><strong>Hold the task and the misbehavior incentive fixed, vary only where the monitor reads, and measure how much each reward shape teaches the model to hide rather than to behave.</strong></p>
-  <p align="center">SPAR Fall 2026 · <a href="https://sparai.org/projects/f26/recaZTXfK7ua29Izm">An Exploration of What Kinds of Training Pressure Cause COT Obfuscation</a></p>
-</p>
+  </p>
 
 ---
 
 ## Overview
 
 This repository implements the pilot and full experimental profiles for
-**A Monitor-Reward Taxonomy and the Obfuscation Curve**. The shared engineering spine (config, caching, hooks, metrics,
-ablations, reporting, CI) is generated from a single template so all SPAR Fall
-2026 repos stay aligned on reproducibility.
+**A Monitor-Reward Taxonomy and the Obfuscation Curve**. Config, caching, hooks, metrics, ablations, reporting, and CI are built for reproducible local pilots on small open-weight models.
 
 Hypothesis (one line): Obfuscation pressure is not binary in whether the monitor touches the chain of thought. Post-hoc summarization of reasoning in output space induces measurable obfuscation too, placing it between direct CoT-token monitoring and output-only monitoring. Whether that ordering is stable across training lineages is the open question, not an assumption: lineage-dependent reversals are a live possible outcome and would be a more interesting result than confirmation.
 
@@ -87,20 +84,18 @@ registry and must pass the harness-validation script before any measured claim.
 
 ## Related work
 
-- SPAR Fall 2026 project posting: https://sparai.org/projects/f26/recaZTXfK7ua29Izm
 - Complexity bar: Critical Data PRIMED-AI / RecursiveJEPA engineering standard
 
 ## Citation
 
 ```bibtex
-@misc{cotobf_spar_f26,
+@misc{cotobf_pilot,
   title        = {A Monitor-Reward Taxonomy and the Obfuscation Curve},
   author       = {Cody Wild},
   year         = {2026},
-  howpublished = {SPAR Fall 2026},
+  howpublished = {Research pilot},
   note         = {Hold the task and the misbehavior incentive fixed, vary only where the monitor reads, and measure how much each reward shape teaches the model to hide rather than to behave.},
-  url          = {https://sparai.org/projects/f26/recaZTXfK7ua29Izm}
-}
+  }
 ```
 
 ## License

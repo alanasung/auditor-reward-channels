@@ -3,7 +3,7 @@
 See [CLAUDE.md](CLAUDE.md) for the full build instructions; this file exists so
 that agents which look for `AGENTS.md` find the same context.
 
-Project: A Monitor-Reward Taxonomy and the Obfuscation Curve
+Project: Which Reward Surfaces Teach Models to Hide Their Reasoning
 Package: `src/cotobf`
 Entry point: `python -m cotobf --help`
 

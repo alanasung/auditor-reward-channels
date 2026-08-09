@@ -1,4 +1,4 @@
-# Monitor Placement and Chain-of-Thought Obfuscation
+# Which Reward Surfaces Teach Models to Hide Their Reasoning
 
 **Target project.** An Exploration of What Kinds of Training Pressure Cause COT Obfuscation
 **Research areas.** Chain of thought; Scalable oversight

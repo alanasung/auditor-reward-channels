@@ -1,14 +1,14 @@
-# Design Document: A Monitor-Reward Taxonomy and the Obfuscation Curve
+# Design Document: Which Reward Surfaces Teach Models to Hide Their Reasoning
 
 ## 1. Purpose
 
-This document is the method contract for **A Monitor-Reward Taxonomy and the Obfuscation Curve**. It specifies what is
+This document is the method contract for **Which Reward Surfaces Teach Models to Hide Their Reasoning**. It specifies what is
 measured, how measurement is instrumented, which artifacts are produced, and
 which claims are out of scope for the pilot profile.
 
 One-liner: Hold the task and the misbehavior incentive fixed, vary only where the monitor reads, and measure how much each reward shape teaches the model to hide rather than to behave.
 
-Hypothesis: Obfuscation pressure is not binary in whether the monitor touches the chain of thought. Post-hoc summarization of reasoning in output space induces measurable obfuscation too, placing it between direct CoT-token monitoring and output-only monitoring. Whether that ordering is stable across training lineages is the open question, not an assumption: lineage-dependent reversals are a live possible outcome and would be a more interesting result than confirmation.
+Hypothesis: Obfuscation is graded by *where* a monitor reads, not a binary CoT-vs-output split — and the ordering of those surfaces may depend on training lineage.
 
 ## 2. Scope
 

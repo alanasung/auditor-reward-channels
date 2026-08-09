@@ -1,15 +1,15 @@
 <p align="center">
-  <h1 align="center">Monitor Placement and Chain-of-Thought Obfuscation</h1>
-  <p align="center"><strong>Hold the task fixed, vary only where the monitor reads, and measure which reward shapes teach models to hide rather than behave.</strong></p>
+  <h1 align="center">Which Reward Surfaces Teach Models to Hide Their Reasoning</h1>
+  <p align="center"><strong>Compare CoT-token, post-hoc summary, and output-only monitors in one cheating environment, and see whether the pressure ranking flips across model lineages.</strong></p>
   </p>
 
 ---
 
 ## Overview
 
-This repository implements experimental profiles for **Monitor Placement and Chain-of-Thought Obfuscation**. Config, caching, hooks, metrics, ablations, reporting, and CI are built for reproducible local pilots on small open-weight models.
+This repository implements experimental profiles for **Which Reward Surfaces Teach Models to Hide Their Reasoning**. Config, caching, hooks, metrics, ablations, reporting, and CI are built for reproducible local pilots on small open-weight models.
 
-Hypothesis (one line): Obfuscation pressure is not binary in whether the monitor touches the chain of thought. Post-hoc summarization of reasoning in output space induces measurable obfuscation too, placing it between direct CoT-token monitoring and output-only monitoring. Whether that ordering is stable across training lineages is the open question, not an assumption: lineage-dependent reversals are a live possible outcome and would be a more interesting result than confirmation.
+Hypothesis (one line): Obfuscation is graded by *where* a monitor reads, not a binary CoT-vs-output split — and the ordering of those surfaces may depend on training lineage.
 
 ## Motivation
 
@@ -86,8 +86,8 @@ registry and must pass the harness-validation script before any measured claim.
 ## Citation
 
 ```bibtex
-@misc{cot_obfuscation_pilot,
-  title        = {Monitor Placement and Chain-of-Thought Obfuscation},
+@misc{reward_surface_obfuscation,
+  title        = {Which Reward Surfaces Teach Models to Hide Their Reasoning},
   author       = {Alana Sung},
   year         = {2026},
   howpublished = {Technical report},

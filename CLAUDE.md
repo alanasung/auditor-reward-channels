@@ -4,7 +4,7 @@ Context for coding agents working in this repository.
 
 ## What this is
 
-Research implementation of "Monitor Placement and Chain-of-Thought Obfuscation".
+Research implementation of "Which Reward Surfaces Teach Models to Hide Their Reasoning".
 
 ## Hard constraints
 

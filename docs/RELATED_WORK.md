@@ -1,6 +1,6 @@
 # Related work
 
-This note situates **Monitor Placement and Chain-of-Thought Obfuscation** against related literature.
+This note situates **Which Reward Surfaces Teach Models to Hide Their Reasoning** against related literature.
 
 ## Positioning
 

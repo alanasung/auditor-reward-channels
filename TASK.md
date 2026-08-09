@@ -1,4 +1,4 @@
-# TASK.md — A Monitor-Reward Taxonomy and the Obfuscation Curve
+# TASK.md — Which Reward Surfaces Teach Models to Hide Their Reasoning
 
 ID convention: `I##` infrastructure, `D##` data, `M##` modelling / hooks,
 `E##` experiments, `A##` ablations, `S##` sweeps, `R##` reporting.

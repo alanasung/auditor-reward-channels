@@ -1,6 +1,5 @@
-# Which Reward Surfaces Teach Models to Hide Their Reasoning
+# When the Auditor's Channel Becomes the Policy
 
-**Target project.** An Exploration of What Kinds of Training Pressure Cause COT Obfuscation
 **Research areas.** Chain of thought; Scalable oversight
 
 ## Summary
@@ -9,7 +8,7 @@ Hold the task and the misbehavior incentive fixed, vary only where the monitor r
 
 ## Hypothesis
 
-Obfuscation pressure is not binary in whether the monitor touches the chain of thought. Post-hoc summarization of reasoning in output space induces measurable obfuscation too, placing it between direct CoT-token monitoring and output-only monitoring. Whether that ordering is stable across training lineages is the open question, not an assumption: lineage-dependent reversals are a live possible outcome and would be a more interesting result than confirmation.
+Where a training-time auditor reads (trace tokens, post-hoc summary, or final answer) changes how much of the policy stays legible to a separate grader.
 
 A hypothesis worth testing has to be able to lose. This one loses if the
 measurements below come back null, and the design is built so that a null is

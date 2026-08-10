@@ -1,10 +1,10 @@
-# Build instructions
+# When the Auditor's Channel Becomes the Policy
 
 Context for coding agents working in this repository.
 
 ## What this is
 
-Research implementation of "Which Reward Surfaces Teach Models to Hide Their Reasoning".
+Research implementation of "When the Auditor's Channel Becomes the Policy".
 
 ## Hard constraints
 

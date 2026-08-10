@@ -1,4 +1,4 @@
-# Experiment plan
+# Experiment plan — When the Auditor's Channel Becomes the Policy
 
 Stage-by-stage design. Each stage is registered in `src/cotobf/stages.py`
 and appears in `python -m cotobf stages`.

@@ -1,9 +1,9 @@
-# Repository guide
+# When the Auditor's Channel Becomes the Policy
 
 See [CLAUDE.md](CLAUDE.md) for the full build instructions; this file exists so
 that agents which look for `AGENTS.md` find the same context.
 
-Project: Which Reward Surfaces Teach Models to Hide Their Reasoning
+Project: When the Auditor's Channel Becomes the Policy
 Package: `src/cotobf`
 Entry point: `python -m cotobf --help`
 

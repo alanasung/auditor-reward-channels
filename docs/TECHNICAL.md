@@ -1,4 +1,4 @@
-# Technical appendix
+# When the Auditor's Channel Becomes the Policy
 
 ## A1. Technical note 1
 

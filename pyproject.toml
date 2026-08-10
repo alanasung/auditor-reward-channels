@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "cotobf"
 version = "0.1.0"
-description = "Map reward-surface placement to obfuscation of model reasoning."
+description = "Study how reward-readout channels reshape the usefulness of reasoning traces to a fixed auditor."
 readme = "README.md"
 requires-python = ">=3.10,<3.13"
 license = { text = "MIT" }

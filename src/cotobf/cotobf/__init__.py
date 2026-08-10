@@ -1,4 +1,4 @@
-"""Monitor-Reward Taxonomy and the Obfuscation Curve."""
+"""Reward-channel effects on reasoning-trace legibility."""
 
 from .env import RewardHackEnv, detect_cheat
 

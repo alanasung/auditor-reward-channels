@@ -1,14 +1,14 @@
-# Design Document: Which Reward Surfaces Teach Models to Hide Their Reasoning
+# When the Auditor's Channel Becomes the Policy — design
 
 ## 1. Purpose
 
-This document is the method contract for **Which Reward Surfaces Teach Models to Hide Their Reasoning**. It specifies what is
+This document is the method contract for **When the Auditor's Channel Becomes the Policy**. It specifies what is
 measured, how measurement is instrumented, which artifacts are produced, and
 which claims are out of scope for the pilot profile.
 
 One-liner: Hold the task and the misbehavior incentive fixed, vary only where the monitor reads, and measure how much each reward shape teaches the model to hide rather than to behave.
 
-Hypothesis: Obfuscation is graded by *where* a monitor reads, not a binary CoT-vs-output split — and the ordering of those surfaces may depend on training lineage.
+Hypothesis: Where a training-time auditor reads (trace tokens, post-hoc summary, or final answer) changes how much of the policy stays legible to a separate grader.
 
 ## 2. Scope
 
@@ -257,7 +257,7 @@ Run `python orchestration/scaffold2.py` from the meta-repo root after template e
 
 Run `python orchestration/scaffold2.py` from the meta-repo root after template edits.
 
-## 23. Domain methodology: Monitor-Reward Taxonomy
+## 23. Domain methodology: Reward-channel legibility
 
 ### Held-out scoring
 

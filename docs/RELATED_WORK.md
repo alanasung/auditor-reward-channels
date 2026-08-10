@@ -1,12 +1,12 @@
 # Related work
 
-This note situates **Which Reward Surfaces Teach Models to Hide Their Reasoning** against related literature.
+This note situates **When the Auditor's Channel Becomes the Policy** against related literature.
 
 ## Positioning
 
 Hold the task and the misbehavior incentive fixed, vary only where the monitor reads, and measure how much each reward shape teaches the model to hide rather than to behave.
 
-The design hypothesis is: Obfuscation pressure is not binary in whether the monitor touches the chain of thought. Post-hoc summarization of reasoning in output space induces measurable obfuscation too, placing it between direct CoT-token monitoring and output-only monitoring. Whether that ordering is stable across training lineages is the open question, not an assumption: lineage-dependent reversals are a live possible outcome and would be a more interesting result than confirmation.
+The design hypothesis is: Where a training-time auditor reads (trace tokens, post-hoc summary, or final answer) changes how much of the policy stays legible to a separate grader.
 
 ## Engagement rules
 

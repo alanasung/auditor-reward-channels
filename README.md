@@ -1,15 +1,15 @@
 <p align="center">
-  <h1 align="center">Which Reward Surfaces Teach Models to Hide Their Reasoning</h1>
-  <p align="center"><strong>Compare CoT-token, post-hoc summary, and output-only monitors in one cheating environment, and see whether the pressure ranking flips across model lineages.</strong></p>
+  <h1 align="center">When the Auditor's Channel Becomes the Policy</h1>
+  <p align="center"><strong>Compare how different reward readouts reshape reasoning traces under a fixed held-out auditor.</strong></p>
   </p>
 
 ---
 
 ## Overview
 
-This repository implements experimental profiles for **Which Reward Surfaces Teach Models to Hide Their Reasoning**. Config, caching, hooks, metrics, ablations, reporting, and CI are built for reproducible local pilots on small open-weight models.
+This repository implements experimental profiles for **When the Auditor's Channel Becomes the Policy**. Config, caching, hooks, metrics, ablations, reporting, and CI are built for reproducible local pilots on small open-weight models.
 
-Hypothesis (one line): Obfuscation is graded by *where* a monitor reads, not a binary CoT-vs-output split — and the ordering of those surfaces may depend on training lineage.
+Hypothesis (one line): Where a training-time auditor reads (trace tokens, post-hoc summary, or final answer) changes how much of the policy stays legible to a separate grader.
 
 ## Motivation
 
@@ -76,8 +76,7 @@ private data. Synthetic harness-validation outputs are labelled
 
 ## Status
 
-Shared spine is in place. Domain-specific stages land behind the experiment
-registry and must pass the harness-validation script before any measured claim.
+Focus: reward-channel effects on reasoning-trace legibility. Shared infrastructure is in place; domain stages must pass harness validation before any measured claim.
 
 ## Related work
 
@@ -87,7 +86,7 @@ registry and must pass the harness-validation script before any measured claim.
 
 ```bibtex
 @misc{reward_surface_obfuscation,
-  title        = {Which Reward Surfaces Teach Models to Hide Their Reasoning},
+  title        = {When the Auditor's Channel Becomes the Policy},
   author       = {Alana Sung},
   year         = {2026},
   howpublished = {Technical report},
